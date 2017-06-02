@@ -32,6 +32,10 @@
 		61A81AA41B54D6A600CF33F7 /* UIImage+DiplomatResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A81AA31B54D6A600CF33F7 /* UIImage+DiplomatResize.m */; };
 		61A81AA71B54F3DC00CF33F7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A81AA61B54F3DC00CF33F7 /* CoreTelephony.framework */; };
 		61ED34841B07413000171709 /* IMG_0965_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ED34831B07413000171709 /* IMG_0965_thumb.png */; };
+		72A5284B1EE0124900AA8323 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A528491EE0124900AA8323 /* FBSDKCoreKit.framework */; };
+		72A5284C1EE0124900AA8323 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A5284A1EE0124900AA8323 /* FBSDKLoginKit.framework */; };
+		72A5284E1EE014AC00AA8323 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A5284D1EE014AC00AA8323 /* Bolts.framework */; };
+		72A528511EE0199C00AA8323 /* FacebookProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A528501EE0199C00AA8323 /* FacebookProxy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +98,11 @@
 		61A81AA51B54F36100CF33F7 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		61A81AA61B54F3DC00CF33F7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		61ED34831B07413000171709 /* IMG_0965_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0965_thumb.png; sourceTree = "<group>"; };
+		72A528491EE0124900AA8323 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		72A5284A1EE0124900AA8323 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		72A5284D1EE014AC00AA8323 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		72A5284F1EE0199C00AA8323 /* FacebookProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookProxy.h; sourceTree = "<group>"; };
+		72A528501EE0199C00AA8323 /* FacebookProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookProxy.m; sourceTree = "<group>"; };
 		B1F3E4DE66822E308DDF2D5E /* libPods-Diplomat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Diplomat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,10 +114,13 @@
 				61A81AA71B54F3DC00CF33F7 /* CoreTelephony.framework in Frameworks */,
 				6119EE0D1CBF5223000770DE /* TencentOpenAPI.framework in Frameworks */,
 				616502331B034FCC004246A3 /* ImageIO.framework in Frameworks */,
+				72A5284E1EE014AC00AA8323 /* Bolts.framework in Frameworks */,
 				6165022D1B030403004246A3 /* libsqlite3.dylib in Frameworks */,
 				6165022B1B0302DD004246A3 /* libc++.dylib in Frameworks */,
+				72A5284B1EE0124900AA8323 /* FBSDKCoreKit.framework in Frameworks */,
 				616502291B03022E004246A3 /* SystemConfiguration.framework in Frameworks */,
 				616502271B03021C004246A3 /* libz.dylib in Frameworks */,
+				72A5284C1EE0124900AA8323 /* FBSDKLoginKit.framework in Frameworks */,
 				616502201B008ED4004246A3 /* libWeChatSDK.a in Frameworks */,
 				616502211B008ED4004246A3 /* libWeiboSDK.a in Frameworks */,
 			);
@@ -232,6 +244,7 @@
 		616502071B008ED4004246A3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				72A528471EE00A9E00AA8323 /* Facebook */,
 				616502081B008ED4004246A3 /* Tencent */,
 				6165020F1B008ED4004246A3 /* Wechat */,
 				616502131B008ED4004246A3 /* Weibo */,
@@ -272,6 +285,26 @@
 				6130F8721B2A595D005788E4 /* SDK */,
 			);
 			path = Weibo;
+			sourceTree = "<group>";
+		};
+		72A528471EE00A9E00AA8323 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				72A528481EE00AAC00AA8323 /* SDK */,
+			);
+			path = Facebook;
+			sourceTree = "<group>";
+		};
+		72A528481EE00AAC00AA8323 /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				72A5284D1EE014AC00AA8323 /* Bolts.framework */,
+				72A528491EE0124900AA8323 /* FBSDKCoreKit.framework */,
+				72A5284A1EE0124900AA8323 /* FBSDKLoginKit.framework */,
+				72A5284F1EE0199C00AA8323 /* FacebookProxy.h */,
+				72A528501EE0199C00AA8323 /* FacebookProxy.m */,
+			);
+			name = SDK;
 			sourceTree = "<group>";
 		};
 		C26E7E06E6FCF11D46A33AB2 /* Frameworks */ = {
@@ -333,7 +366,8 @@
 				TargetAttributes = {
 					616501DD1B0088DF004246A3 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 8PJZBHFZQF;
+						DevelopmentTeam = WU2WFZ2B66;
+						ProvisioningStyle = Automatic;
 					};
 					616501F61B0088DF004246A3 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -388,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A528511EE0199C00AA8323 /* FacebookProxy.m in Sources */,
 				616501EA1B0088DF004246A3 /* ViewController.m in Sources */,
 				616501E71B0088DF004246A3 /* AppDelegate.m in Sources */,
 				611C3BB01B4A35EB00EAB4CE /* Diplomat-acknowledgements.md in Sources */,
@@ -530,12 +565,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WU2WFZ2B66;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Sources/Tencent",
+					"$(PROJECT_DIR)/Sources/Facebook",
 				);
 				INFOPLIST_FILE = Diplomat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -543,9 +581,10 @@
 					"$(PROJECT_DIR)/Sources/Wechat",
 					"$(PROJECT_DIR)/Sources/Weibo",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.liulishuo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.het.common.demo;
 				PRODUCT_NAME = Diplomat;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -554,12 +593,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WU2WFZ2B66;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Sources/Tencent",
+					"$(PROJECT_DIR)/Sources/Facebook",
 				);
 				INFOPLIST_FILE = Diplomat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -567,9 +609,10 @@
 					"$(PROJECT_DIR)/Sources/Wechat",
 					"$(PROJECT_DIR)/Sources/Weibo",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.liulishuo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.het.common.demo;
 				PRODUCT_NAME = Diplomat;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
