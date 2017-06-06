@@ -7,7 +7,6 @@
 //
 
 #import "Diplomat.h"
-#import <CoreML/CoreML.h>
 NSString * __nonnull const kDiplomatAppIdKey = @"diplomat_app_id";
 NSString * __nonnull const kDiplomatAppSecretKey = @"diplomat_app_secret";
 NSString * __nonnull const kDiplomatAppRedirectUrlKey = @"diplomat_app_redirect_url";
@@ -70,16 +69,28 @@ NSString * __nonnull const kDiplomatAppDebugModeKey = @"diplomat_app_debug_mode"
   return [proxy isInstalled];
 }
 
-- (BOOL)handleOpenURL:(NSURL * __nullable)url
-{
-  BOOL success = NO;
-  for (id<DiplomatProxyProtocol> proxy in self.proxyObjects.allValues)
-  {
-    success = success || [proxy handleOpenURL:url];
-  }
-
-  return success;
+-(BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    BOOL success = NO;
+    for (id<DiplomatProxyProtocol> proxy in self.proxyObjects.allValues)
+    {
+        success = success || [proxy handleApplication:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    }
+    
+    return success;
 }
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_0
+
+-(BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    BOOL success = NO;
+    for (id<DiplomatProxyProtocol> proxy in self.proxyObjects.allValues)
+    {
+        success = success || [proxy handleApplication:application openURL:url options:options];
+    }
+    
+    return success;
+}
+#endif
+
 
 - (void)authWithName:(NSString * __nonnull)name completed:(DiplomatCompletedBlock __nullable)completedBlock
 {

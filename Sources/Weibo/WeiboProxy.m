@@ -76,10 +76,17 @@ NSString * const kDiplomatTypeWeibo = @"diplomat_weibo";
   [WeiboSDK sendRequest:request];
 }
 
-- (BOOL)handleOpenURL:(NSURL *)url
-{
+
+- (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
   return [WeiboSDK handleOpenURL:url delegate:self];
 }
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_0
+- (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
+#endif
+
 
 #pragma mark - Weibo SDK Delegate
 

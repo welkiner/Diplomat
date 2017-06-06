@@ -36,13 +36,23 @@ NSString * const kTencentQQSceneTypeKey = @"tencent_qq_scene_type_key";
   self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:configuration[kDiplomatAppIdKey] andDelegate:self];
 }
 
-- (BOOL)handleOpenURL:(NSURL * __nullable)url
-{
-  BOOL qq = [QQApiInterface handleOpenURL:url delegate:self];
-  BOOL tencent = [TencentOAuth HandleOpenURL:url];
-
-  return qq || tencent;
+- (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    BOOL qq = [QQApiInterface handleOpenURL:url delegate:self];
+    BOOL tencent = [TencentOAuth HandleOpenURL:url];
+    
+    return qq || tencent;
 }
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_0
+- (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    BOOL qq = [QQApiInterface handleOpenURL:url delegate:self];
+    BOOL tencent = [TencentOAuth HandleOpenURL:url];
+    
+    return qq || tencent;
+}
+#endif
+
+
 
 - (void)auth:(DiplomatCompletedBlock __nullable)completedBlock
 {

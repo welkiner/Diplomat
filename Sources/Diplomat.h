@@ -24,10 +24,14 @@ typedef void (^DiplomatCompletedBlock)(id __nullable result, NSError * __nullabl
 + (id<DiplomatProxyProtocol> __nonnull)proxy DEPRECATED_MSG_ATTRIBUTE("Use `Diplomat proxyForName:` instead.");
 
 - (void)registerWithConfiguration:(NSDictionary * __nonnull)configuration;
-- (BOOL)handleOpenURL:(NSURL * __nullable)url;
 - (void)auth:(DiplomatCompletedBlock __nullable)completedBlock;
 - (BOOL)isInstalled;
 - (void)share:(DTMessage * __nonnull)message completed:(DiplomatCompletedBlock __nullable)compltetedBlock;
+
+- (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_0
+- (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options;
+#endif
 
 @end
 
@@ -63,20 +67,38 @@ typedef void (^DiplomatCompletedBlock)(id __nullable result, NSError * __nullabl
  */
 - (void)registerWithConfigurations:(NSDictionary * __nonnull)configurations;
 
+
 /**
  @brief sso 跳转处理。
-
+ 
  @discussion 在 sso 跳转回中，为了能从授权的第三应用跳回来。需要配置好对应的 URL Schemes。
-
- @code 
+ 
+ @code
  - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
  {
-   return [[Diplomat sharedInstance] handleOpenURL:url];
+    return [[Diplomat sharedInstance] handleApplication:application openURL:url sourceApplication:sourceApplication annotation:annotation];
  }
  @endcode
-
+ 
  */
-- (BOOL)handleOpenURL:(NSURL * __nullable)url;
+- (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_0
+/**
+ @brief sso 跳转处理。
+ 
+ @discussion 在 sso 跳转回中，为了能从授权的第三应用跳回来。需要配置好对应的 URL Schemes。
+ 
+ @code
+ - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    return [[Diplomat sharedInstance] handleApplication:application openURL:url options:options];
+ }
+ @endcode
+ 
+ */
+- (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options;
+#endif
+
 
 /**
  @brief 通过第三方授权登录。

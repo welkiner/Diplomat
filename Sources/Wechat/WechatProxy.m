@@ -106,11 +106,16 @@ NSString * const kWechatSceneTypeKey = @"wechat_scene_type_key";
   return [WXApi isWXAppInstalled];
 }
 
-- (BOOL)handleOpenURL:(NSURL * __nullable)url
-{
-  return [WXApi handleOpenURL:url delegate:self];
+
+- (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    return [WXApi handleOpenURL:url delegate:self];
 }
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_0
+- (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    return [WXApi handleOpenURL:url delegate:self];
+}
+#endif
 #pragma mark - Wechat SDK Delegate
 
 - (void)onReq:(BaseReq*)req

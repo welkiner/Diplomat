@@ -98,6 +98,7 @@
 		61A81AA51B54F36100CF33F7 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		61A81AA61B54F3DC00CF33F7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		61ED34831B07413000171709 /* IMG_0965_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0965_thumb.png; sourceTree = "<group>"; };
+		724274F11EE664570081449C /* CoreNFC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
 		72A528491EE0124900AA8323 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		72A5284A1EE0124900AA8323 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		72A5284D1EE014AC00AA8323 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -310,6 +311,7 @@
 		C26E7E06E6FCF11D46A33AB2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				724274F11EE664570081449C /* CoreNFC.framework */,
 				61A81AA61B54F3DC00CF33F7 /* CoreTelephony.framework */,
 				6188CBAB1B29E9C100A47780 /* UIKit.framework */,
 				B1F3E4DE66822E308DDF2D5E /* libPods-Diplomat.a */,
@@ -511,7 +513,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
@@ -551,7 +553,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-all_load";
 				PROVISIONING_PROFILE = "1421fbe8-4cf3-4b55-88c9-d3b49055fbd7";
@@ -566,6 +568,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = WU2WFZ2B66;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -666,7 +669,7 @@
 				616502001B0088DF004246A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		616502011B0088DF004246A3 /* Build configuration list for PBXNativeTarget "Diplomat" */ = {
 			isa = XCConfigurationList;
@@ -675,7 +678,7 @@
 				616502031B0088DF004246A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		616502041B0088DF004246A3 /* Build configuration list for PBXNativeTarget "DiplomatTests" */ = {
 			isa = XCConfigurationList;
@@ -684,7 +687,7 @@
 				616502061B0088DF004246A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

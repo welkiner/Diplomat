@@ -12,6 +12,9 @@
 #import "WechatProxy.h"
 #import "QQProxy.h"
 #import "FacebookProxy.h"
+
+#import "FBSDKLoginKit/FBSDKLoginKit.h"
+#import "FBSDKCoreKit/FBSDKCoreKit.h"
 @interface AppDelegate ()
 
 @end
@@ -22,6 +25,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
   [self configShareSDK];
+   // [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
   // Override point for customization after application launch.
   return YES;
 }
@@ -63,7 +67,11 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-  return [[Diplomat sharedInstance] handleOpenURL:url];
+    return [[Diplomat sharedInstance] handleApplication:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    return [[Diplomat sharedInstance] handleApplication:application openURL:url options:options];
 }
 
 @end

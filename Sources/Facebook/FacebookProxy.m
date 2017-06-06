@@ -29,6 +29,7 @@ NSString * const kDiplomatTypeFacebook = @"diplomat_facebook";
 {
     [FBSDKSettings setAppID:configuration[kDiplomatAppIdKey]];
     [FBSDKSettings setClientToken:configuration[kDiplomatAppSecretKey]];
+    
     NSLog(@"%@",[FBSDKSettings appURLSchemeSuffix]);
 }
 - (void)auth:(DiplomatCompletedBlock)completedBlock
@@ -60,4 +61,13 @@ NSString * const kDiplomatTypeFacebook = @"diplomat_facebook";
     BOOL ishandle = [[FBSDKApplicationDelegate sharedInstance] application:nil openURL:url sourceApplication:nil annotation:nil];
     return ishandle;
 }
+- (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+}
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_0
+- (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url options:options];
+}
+#endif
 @end
