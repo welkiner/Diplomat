@@ -94,7 +94,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="返回的信息" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="568" translatesAutoresizingMaskIntoConstraints="NO" id="Jsl-04-FXA">
-                                <rect key="frame" x="16" y="206" width="288" height="21"/>
+                                <rect key="frame" x="16" y="366" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -166,6 +166,14 @@
                                     <action selector="shareNewsToQQAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xEG-rA-AZv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9i-8u-56A">
+                                <rect key="frame" x="16" y="174" width="95" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="facebook登录"/>
+                                <connections>
+                                    <action selector="facebookloginAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ztd-T0-OXE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -176,7 +184,7 @@
                             <constraint firstItem="Hji-kN-YY1" firstAttribute="leading" secondItem="6T6-Bx-c6S" secondAttribute="trailing" constant="8" id="5Gh-nu-9ah"/>
                             <constraint firstItem="0F8-Gg-eLl" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="5Hq-Km-o8e"/>
                             <constraint firstItem="Hji-kN-YY1" firstAttribute="centerY" secondItem="6T6-Bx-c6S" secondAttribute="centerY" id="78o-Q6-P1Q"/>
-                            <constraint firstItem="Jsl-04-FXA" firstAttribute="top" secondItem="lcy-89-Dli" secondAttribute="bottom" constant="40" id="7i6-ja-iTX"/>
+                            <constraint firstItem="Jsl-04-FXA" firstAttribute="top" secondItem="lcy-89-Dli" secondAttribute="bottom" constant="200" id="7i6-ja-iTX"/>
                             <constraint firstItem="GzD-J0-xcT" firstAttribute="centerY" secondItem="VsZ-6c-uj6" secondAttribute="centerY" id="Caa-rp-p1t"/>
                             <constraint firstItem="0F8-Gg-eLl" firstAttribute="centerY" secondItem="6T6-Bx-c6S" secondAttribute="centerY" id="G09-tX-0dt"/>
                             <constraint firstItem="QDJ-Ze-XsJ" firstAttribute="leading" secondItem="faP-Cd-zus" secondAttribute="trailing" constant="8" id="Job-kh-N3o"/>

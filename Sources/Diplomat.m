@@ -7,7 +7,7 @@
 //
 
 #import "Diplomat.h"
-
+#import <CoreML/CoreML.h>
 NSString * __nonnull const kDiplomatAppIdKey = @"diplomat_app_id";
 NSString * __nonnull const kDiplomatAppSecretKey = @"diplomat_app_secret";
 NSString * __nonnull const kDiplomatAppRedirectUrlKey = @"diplomat_app_redirect_url";

@@ -11,7 +11,7 @@
 #import "WeiboProxy.h"
 #import "WechatProxy.h"
 #import "QQProxy.h"
-
+#import "FacebookProxy.h"
 static enum WXScene kWechatScene = WXSceneSession;
 
 @interface ViewController ()
@@ -49,6 +49,12 @@ static enum WXScene kWechatScene = WXSceneSession;
 {
   [self loginWithType:kDiplomatTypeQQ];
 }
+- (IBAction)facebookloginAction:(UIButton *)sender {
+    [self loginWithType:kDiplomatTypeFacebook];
+}
+
+
+
 
 - (void)loginWithType:(NSString *)type
 {
@@ -133,6 +139,11 @@ static enum WXScene kWechatScene = WXSceneSession;
 {
   [self shareMessage:[self generateWebPageMessage] type:kDiplomatTypeQQ];
 }
+
+
+
+
+
 
 - (DTMessage *)generateTextMessage
 {

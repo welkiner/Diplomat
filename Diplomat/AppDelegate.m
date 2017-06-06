@@ -11,7 +11,7 @@
 #import "WeiboProxy.h"
 #import "WechatProxy.h"
 #import "QQProxy.h"
-
+#import "FacebookProxy.h"
 @interface AppDelegate ()
 
 @end
@@ -32,7 +32,11 @@
                                                                                kDiplomatAppRedirectUrlKey: @"http://www.sina.com"},
                                                          kDiplomatTypeWechat: @{kDiplomatAppIdKey: @"wxd930ea5d5a258f4f",
                                                                                 kDiplomatAppSecretKey: @"db426a9829e4b49a0dcac7b4162da6b6"},
-                                                         kDiplomatTypeQQ: @{kDiplomatAppIdKey: @"222222"}}];
+                                                         kDiplomatTypeQQ: @{kDiplomatAppIdKey: @"222222"},
+                                                          kDiplomatTypeFacebook: @{
+                                                                  kDiplomatAppIdKey :@"1026026917527982",
+                                                            kDiplomatAppSecretKey:@"64698ccc053aafb7ecab8d6bddffbf60"
+                                                                  }}];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

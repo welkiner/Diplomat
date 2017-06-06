@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "Diplomat.h"
+NS_ASSUME_NONNULL_BEGIN
+extern NSString * const kDiplomatTypeFacebook;
+extern NSString * const kFacebookTypeKey;
 
-
-@interface FacebookProxy : NSObject
+@interface FacebookProxy : NSObject<DiplomatProxyProtocol>
 
 @end
+NS_ASSUME_NONNULL_END
