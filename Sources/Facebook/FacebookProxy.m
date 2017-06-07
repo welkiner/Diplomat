@@ -9,12 +9,14 @@
 #import "FacebookProxy.h"
 #import "FBSDKLoginKit/FBSDKLoginKit.h"
 #import "FBSDKCoreKit/FBSDKCoreKit.h"
+#import "AccountKit/AccountKit.h"
+static NSString * const kFacebookErrorDomain = @"facebook_error_domain";
 NSString * const kDiplomatTypeFacebook = @"diplomat_facebook";
 @interface FacebookProxy()
 @property (copy, nonatomic) DiplomatCompletedBlock block;
 @end
 @implementation FacebookProxy
-
+#pragma mark DiplomatProxyProtocol
 + (id<DiplomatProxyProtocol> __nonnull)proxy
 {
     return [[FacebookProxy alloc] init];
@@ -30,7 +32,6 @@ NSString * const kDiplomatTypeFacebook = @"diplomat_facebook";
     [FBSDKSettings setAppID:configuration[kDiplomatAppIdKey]];
     [FBSDKSettings setClientToken:configuration[kDiplomatAppSecretKey]];
     
-    NSLog(@"%@",[FBSDKSettings appURLSchemeSuffix]);
 }
 - (void)auth:(DiplomatCompletedBlock)completedBlock
 {
@@ -42,9 +43,10 @@ NSString * const kDiplomatTypeFacebook = @"diplomat_facebook";
                  fromViewController:nil
                             handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                 if (error || result.isCancelled) {
-                                    NSLog(@"aa");
+                                    !self.block?:self.block(nil, [NSError errorWithDomain:kFacebookErrorDomain code:-1024 userInfo:@{NSLocalizedDescriptionKey:@"取消授权"}]);
                                 }else{
-                                    NSLog(@"bb");
+                                    [FBSDKAccessToken setCurrentAccessToken:result.token];
+                                    [self getUserInfoWithToken:result.token];
                                 }
                             }];
 
@@ -70,4 +72,10 @@ NSString * const kDiplomatTypeFacebook = @"diplomat_facebook";
     return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url options:options];
 }
 #endif
+
+#pragma mark ---
+-(void)getUserInfoWithToken:(FBSDKAccessToken *)token{
+    
+}
+
 @end

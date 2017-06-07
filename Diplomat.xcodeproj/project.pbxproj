@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6119EE0D1CBF5223000770DE /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6119EE0C1CBF5223000770DE /* TencentOpenAPI.framework */; };
-		611C3BB01B4A35EB00EAB4CE /* Diplomat-acknowledgements.md in Sources */ = {isa = PBXBuildFile; fileRef = 611C3BAF1B4A35EB00EAB4CE /* Diplomat-acknowledgements.md */; };
 		6130F8751B2A5996005788E4 /* WeiboProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6130F8741B2A5996005788E4 /* WeiboProxy.m */; };
 		6130F8791B2A59E5005788E4 /* WechatProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6130F8781B2A59E5005788E4 /* WechatProxy.m */; };
 		6130F87D1B2A5A07005788E4 /* QQProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6130F87C1B2A5A07005788E4 /* QQProxy.m */; };
@@ -32,6 +31,7 @@
 		61A81AA41B54D6A600CF33F7 /* UIImage+DiplomatResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A81AA31B54D6A600CF33F7 /* UIImage+DiplomatResize.m */; };
 		61A81AA71B54F3DC00CF33F7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A81AA61B54F3DC00CF33F7 /* CoreTelephony.framework */; };
 		61ED34841B07413000171709 /* IMG_0965_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ED34831B07413000171709 /* IMG_0965_thumb.png */; };
+		721CF2821EE7CDE8008082CB /* AccountKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 721CF2811EE7CDE8008082CB /* AccountKit.framework */; };
 		72A5284B1EE0124900AA8323 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A528491EE0124900AA8323 /* FBSDKCoreKit.framework */; };
 		72A5284C1EE0124900AA8323 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A5284A1EE0124900AA8323 /* FBSDKLoginKit.framework */; };
 		72A5284E1EE014AC00AA8323 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A5284D1EE014AC00AA8323 /* Bolts.framework */; };
@@ -98,6 +98,7 @@
 		61A81AA51B54F36100CF33F7 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		61A81AA61B54F3DC00CF33F7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		61ED34831B07413000171709 /* IMG_0965_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0965_thumb.png; sourceTree = "<group>"; };
+		721CF2811EE7CDE8008082CB /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AccountKit.framework; sourceTree = "<group>"; };
 		724274F11EE664570081449C /* CoreNFC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
 		72A528491EE0124900AA8323 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		72A5284A1EE0124900AA8323 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -124,6 +125,7 @@
 				72A5284C1EE0124900AA8323 /* FBSDKLoginKit.framework in Frameworks */,
 				616502201B008ED4004246A3 /* libWeChatSDK.a in Frameworks */,
 				616502211B008ED4004246A3 /* libWeiboSDK.a in Frameworks */,
+				721CF2821EE7CDE8008082CB /* AccountKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +301,7 @@
 		72A528481EE00AAC00AA8323 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				721CF2811EE7CDE8008082CB /* AccountKit.framework */,
 				72A5284D1EE014AC00AA8323 /* Bolts.framework */,
 				72A528491EE0124900AA8323 /* FBSDKCoreKit.framework */,
 				72A5284A1EE0124900AA8323 /* FBSDKLoginKit.framework */,
@@ -363,7 +366,7 @@
 		616501D61B0088DF004246A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Cloud Dai";
 				TargetAttributes = {
 					616501DD1B0088DF004246A3 = {
@@ -427,7 +430,6 @@
 				72A528511EE0199C00AA8323 /* FacebookProxy.m in Sources */,
 				616501EA1B0088DF004246A3 /* ViewController.m in Sources */,
 				616501E71B0088DF004246A3 /* AppDelegate.m in Sources */,
-				611C3BB01B4A35EB00EAB4CE /* Diplomat-acknowledgements.md in Sources */,
 				616501E41B0088DF004246A3 /* main.m in Sources */,
 				616502251B009465004246A3 /* Diplomat.m in Sources */,
 				61A81AA41B54D6A600CF33F7 /* UIImage+DiplomatResize.m in Sources */,
@@ -488,8 +490,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -535,8 +539,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
