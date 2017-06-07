@@ -9,7 +9,6 @@
 #import "FacebookProxy.h"
 #import "FBSDKLoginKit/FBSDKLoginKit.h"
 #import "FBSDKCoreKit/FBSDKCoreKit.h"
-#import "AccountKit/AccountKit.h"
 static NSString * const kFacebookErrorDomain = @"facebook_error_domain";
 NSString * const kDiplomatTypeFacebook = @"diplomat_facebook";
 @interface FacebookProxy()
