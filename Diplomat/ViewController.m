@@ -12,6 +12,7 @@
 #import "WechatProxy.h"
 #import "QQProxy.h"
 #import "FacebookProxy.h"
+#import "TwitterProxy.h"
 static enum WXScene kWechatScene = WXSceneSession;
 
 @interface ViewController ()
@@ -51,6 +52,9 @@ static enum WXScene kWechatScene = WXSceneSession;
 }
 - (IBAction)facebookloginAction:(UIButton *)sender {
     [self loginWithType:kDiplomatTypeFacebook];
+}
+- (IBAction)twitterloginAction:(UIButton *)sender {
+    [self loginWithType:kDiplomatTypeTwitter];
 }
 
 

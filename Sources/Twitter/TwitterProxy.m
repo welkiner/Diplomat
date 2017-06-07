@@ -7,6 +7,7 @@
 //
 
 #import "TwitterProxy.h"
+#import "TwitterKit/TwitterKit.h"
 static NSString * const kTwitterErrorDomain = @"twitter_error_domain";
 NSString * const kDiplomatTypeTwitter = @"diplomat_twitter";
 @interface TwitterProxy()
@@ -26,14 +27,18 @@ NSString * const kDiplomatTypeTwitter = @"diplomat_twitter";
 
 - (void)registerWithConfiguration:(NSDictionary * __nonnull)configuration
 {
-//    [FBSDKSettings setAppID:configuration[kDiplomatAppIdKey]];
-//    [FBSDKSettings setClientToken:configuration[kDiplomatAppSecretKey]];
-    
+    [[Twitter sharedInstance] startWithConsumerKey:configuration[kDiplomatAppIdKey] consumerSecret:configuration[kDiplomatAppSecretKey]];
 }
 - (void)auth:(DiplomatCompletedBlock)completedBlock
 {
     self.block = completedBlock;
-    
+    [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
+        if (session) {
+            NSLog(@"signed in as %@", [session userName]);
+        } else {
+            NSLog(@"error: %@", [error localizedDescription]);
+        }
+    }];
     
 }
 
@@ -45,17 +50,14 @@ NSString * const kDiplomatTypeTwitter = @"diplomat_twitter";
     return NO;
 }
 
+//SDK规定了必须iOS9以上，该方法并不会调用
 - (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-//    return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
     return YES;
 }
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_0
 - (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
-//    return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url options:options];
-    return YES;
+    return [[Twitter sharedInstance] application:application openURL:url options:options];
 }
-#endif
 
 #pragma mark ---
 @end

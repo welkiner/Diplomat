@@ -38,6 +38,8 @@
 		72EEE22B1EE7DEFD0024A354 /* TwitterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EEE22A1EE7DEFD0024A354 /* TwitterProxy.m */; };
 		72EEE22F1EE7E0060024A354 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EEE22D1EE7E0060024A354 /* TwitterCore.framework */; };
 		72EEE2301EE7E0060024A354 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EEE22E1EE7E0060024A354 /* TwitterKit.framework */; };
+		72EEE2331EE803510024A354 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 72EEE2311EE803510024A354 /* TwitterKitResources.bundle */; };
+		72EEE2341EE803510024A354 /* TwitterShareExtensionUIResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 72EEE2321EE803510024A354 /* TwitterShareExtensionUIResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		72EEE22A1EE7DEFD0024A354 /* TwitterProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterProxy.m; sourceTree = "<group>"; };
 		72EEE22D1EE7E0060024A354 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		72EEE22E1EE7E0060024A354 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		72EEE2311EE803510024A354 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
+		72EEE2321EE803510024A354 /* TwitterShareExtensionUIResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterShareExtensionUIResources.bundle; sourceTree = "<group>"; };
 		B1F3E4DE66822E308DDF2D5E /* libPods-Diplomat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Diplomat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -330,6 +334,8 @@
 		72EEE22C1EE7DFBD0024A354 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				72EEE2311EE803510024A354 /* TwitterKitResources.bundle */,
+				72EEE2321EE803510024A354 /* TwitterShareExtensionUIResources.bundle */,
 				72EEE22D1EE7E0060024A354 /* TwitterCore.framework */,
 				72EEE22E1EE7E0060024A354 /* TwitterKit.framework */,
 			);
@@ -430,7 +436,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				616501ED1B0088DF004246A3 /* Main.storyboard in Resources */,
+				72EEE2331EE803510024A354 /* TwitterKitResources.bundle in Resources */,
 				616502371B05BEAC004246A3 /* IMG_0965.jpg in Resources */,
+				72EEE2341EE803510024A354 /* TwitterShareExtensionUIResources.bundle in Resources */,
 				616501F21B0088DF004246A3 /* LaunchScreen.xib in Resources */,
 				616501EF1B0088DF004246A3 /* Images.xcassets in Resources */,
 				61ED34841B07413000171709 /* IMG_0965_thumb.png in Resources */,
@@ -543,7 +551,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
@@ -585,7 +593,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-all_load";
 				PROVISIONING_PROFILE = "1421fbe8-4cf3-4b55-88c9-d3b49055fbd7";
@@ -609,7 +617,7 @@
 					"$(PROJECT_DIR)/Sources/Twitter",
 				);
 				INFOPLIST_FILE = Diplomat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -638,7 +646,7 @@
 					"$(PROJECT_DIR)/Sources/Twitter",
 				);
 				INFOPLIST_FILE = Diplomat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
