@@ -12,9 +12,7 @@
 #import "WechatProxy.h"
 #import "QQProxy.h"
 #import "FacebookProxy.h"
-
-#import "FBSDKLoginKit/FBSDKLoginKit.h"
-#import "FBSDKCoreKit/FBSDKCoreKit.h"
+#import "TwitterProxy.h"
 @interface AppDelegate ()
 
 @end
@@ -40,7 +38,13 @@
                                                           kDiplomatTypeFacebook: @{
                                                                   kDiplomatAppIdKey :@"1026026917527982",
                                                             kDiplomatAppSecretKey:@"64698ccc053aafb7ecab8d6bddffbf60"
-                                                                  }}];
+                                                                  },
+                                                          kDiplomatTypeTwitter :@{
+                                                                  kDiplomatAppIdKey:@"HweThWbT52F3kOvSS9TkBsAAV",
+                                                                  kDiplomatAppSecretKey:@"YTs1BDzi7Dd4zImIdISEFwAFEcJQCOXJXoUFZA4Tal7yRZDP9i"
+                                                                  
+                                                                  }
+                                                          }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

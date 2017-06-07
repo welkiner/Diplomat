@@ -45,7 +45,7 @@ NSString * const kDiplomatTypeFacebook = @"diplomat_facebook";
                                     !self.block?:self.block(nil, [NSError errorWithDomain:kFacebookErrorDomain code:-1024 userInfo:@{NSLocalizedDescriptionKey:@"取消授权"}]);
                                 }else{
                                     [FBSDKAccessToken setCurrentAccessToken:result.token];
-                                    [self getUserInfoWithToken:result.token];
+                                    [self getUserInfo];
                                 }
                             }];
 
@@ -58,10 +58,7 @@ NSString * const kDiplomatTypeFacebook = @"diplomat_facebook";
 -(BOOL)isInstalled{
     return NO;
 }
--(BOOL)handleOpenURL:(NSURL *)url{
-    BOOL ishandle = [[FBSDKApplicationDelegate sharedInstance] application:nil openURL:url sourceApplication:nil annotation:nil];
-    return ishandle;
-}
+
 - (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
@@ -73,8 +70,36 @@ NSString * const kDiplomatTypeFacebook = @"diplomat_facebook";
 #endif
 
 #pragma mark ---
--(void)getUserInfoWithToken:(FBSDKAccessToken *)token{
+-(void)getUserInfo{
+    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+                                  
+                                  initWithGraphPath:[FBSDKAccessToken currentAccessToken].userID
+                                  parameters:@{@"fields":@"id,name,link,gender,birthday,email,picture,locale,updated_time,timezone,age_range,first_name,last_name"}
+                                  
+                                  HTTPMethod:@"GET"];
     
+    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                          
+                                          id result,
+                                          
+                                          NSError *error) {
+        DTUser *dtUser = nil;
+        if (result[@"id"])
+        {
+            dtUser = [[DTUser alloc] init];
+            dtUser.uid = result[@"id"];
+            dtUser.gender = result[@"gender"];
+            dtUser.nick = result[@"name"];
+            if ([result[@"picture"] isKindOfClass:[NSDictionary class]] &&
+                [result[@"picture"][@"data"] isKindOfClass:[NSDictionary class]]) {
+                dtUser.avatar = result[@"picture"][@"data"][@"url"];
+            }
+            dtUser.provider = @"facebook";
+            dtUser.rawData = result;
+        }
+        !self.block?:self.block(dtUser,error);
+        
+    }];
 }
 
 @end

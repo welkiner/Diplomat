@@ -35,6 +35,9 @@
 		72A5284C1EE0124900AA8323 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A5284A1EE0124900AA8323 /* FBSDKLoginKit.framework */; };
 		72A5284E1EE014AC00AA8323 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A5284D1EE014AC00AA8323 /* Bolts.framework */; };
 		72A528511EE0199C00AA8323 /* FacebookProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A528501EE0199C00AA8323 /* FacebookProxy.m */; };
+		72EEE22B1EE7DEFD0024A354 /* TwitterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EEE22A1EE7DEFD0024A354 /* TwitterProxy.m */; };
+		72EEE22F1EE7E0060024A354 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EEE22D1EE7E0060024A354 /* TwitterCore.framework */; };
+		72EEE2301EE7E0060024A354 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EEE22E1EE7E0060024A354 /* TwitterKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,10 @@
 		72A5284D1EE014AC00AA8323 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		72A5284F1EE0199C00AA8323 /* FacebookProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookProxy.h; sourceTree = "<group>"; };
 		72A528501EE0199C00AA8323 /* FacebookProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookProxy.m; sourceTree = "<group>"; };
+		72EEE2291EE7DEFD0024A354 /* TwitterProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterProxy.h; sourceTree = "<group>"; };
+		72EEE22A1EE7DEFD0024A354 /* TwitterProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterProxy.m; sourceTree = "<group>"; };
+		72EEE22D1EE7E0060024A354 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		72EEE22E1EE7E0060024A354 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		B1F3E4DE66822E308DDF2D5E /* libPods-Diplomat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Diplomat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -123,6 +130,8 @@
 				72A5284C1EE0124900AA8323 /* FBSDKLoginKit.framework in Frameworks */,
 				616502201B008ED4004246A3 /* libWeChatSDK.a in Frameworks */,
 				616502211B008ED4004246A3 /* libWeiboSDK.a in Frameworks */,
+				72EEE22F1EE7E0060024A354 /* TwitterCore.framework in Frameworks */,
+				72EEE2301EE7E0060024A354 /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +253,7 @@
 		616502071B008ED4004246A3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				72EEE2281EE7DDEF0024A354 /* Twitter */,
 				72A528471EE00A9E00AA8323 /* Facebook */,
 				616502081B008ED4004246A3 /* Tencent */,
 				6165020F1B008ED4004246A3 /* Wechat */,
@@ -303,6 +313,25 @@
 				72A5284A1EE0124900AA8323 /* FBSDKLoginKit.framework */,
 				72A5284F1EE0199C00AA8323 /* FacebookProxy.h */,
 				72A528501EE0199C00AA8323 /* FacebookProxy.m */,
+			);
+			name = SDK;
+			sourceTree = "<group>";
+		};
+		72EEE2281EE7DDEF0024A354 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				72EEE2291EE7DEFD0024A354 /* TwitterProxy.h */,
+				72EEE22A1EE7DEFD0024A354 /* TwitterProxy.m */,
+				72EEE22C1EE7DFBD0024A354 /* SDK */,
+			);
+			path = Twitter;
+			sourceTree = "<group>";
+		};
+		72EEE22C1EE7DFBD0024A354 /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				72EEE22D1EE7E0060024A354 /* TwitterCore.framework */,
+				72EEE22E1EE7E0060024A354 /* TwitterKit.framework */,
 			);
 			name = SDK;
 			sourceTree = "<group>";
@@ -423,6 +452,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72EEE22B1EE7DEFD0024A354 /* TwitterProxy.m in Sources */,
 				72A528511EE0199C00AA8323 /* FacebookProxy.m in Sources */,
 				616501EA1B0088DF004246A3 /* ViewController.m in Sources */,
 				616501E71B0088DF004246A3 /* AppDelegate.m in Sources */,
@@ -576,6 +606,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Sources/Tencent",
 					"$(PROJECT_DIR)/Sources/Facebook",
+					"$(PROJECT_DIR)/Sources/Twitter",
 				);
 				INFOPLIST_FILE = Diplomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -604,6 +635,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Sources/Tencent",
 					"$(PROJECT_DIR)/Sources/Facebook",
+					"$(PROJECT_DIR)/Sources/Twitter",
 				);
 				INFOPLIST_FILE = Diplomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

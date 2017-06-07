@@ -31,6 +31,7 @@
 				<string>wxd930ea5d5a258f4f</string>
 				<string>tencent222222</string>
 				<string>fb1026026917527982</string>
+				<string>twitterkit-HweThWbT52F3kOvSS9TkBsAAV</string>
 			</array>
 		</dict>
 	</array>
@@ -44,6 +45,8 @@
 		<string>fbapi</string>
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>
+		<string>twitterauth</string>
+		<string>twitter</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
