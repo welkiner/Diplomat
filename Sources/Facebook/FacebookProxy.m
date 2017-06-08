@@ -55,8 +55,9 @@ NSString * const kDiplomatTypeFacebook = @"diplomat_facebook";
 
 }
 
+//
 -(BOOL)isInstalled{
-    return NO;
+    return YES;
 }
 
 - (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{

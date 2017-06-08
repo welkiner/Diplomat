@@ -34,9 +34,9 @@ NSString * const kDiplomatTypeTwitter = @"diplomat_twitter";
     self.block = completedBlock;
     [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
         if (session) {
-            NSLog(@"signed in as %@", [session userName]);
+            [self getUserInfo];
         } else {
-            NSLog(@"error: %@", [error localizedDescription]);
+            !self.block?:self.block(nil, error);
         }
     }];
     
@@ -47,7 +47,7 @@ NSString * const kDiplomatTypeTwitter = @"diplomat_twitter";
 }
 
 -(BOOL)isInstalled{
-    return NO;
+    return YES;
 }
 
 //SDK规定了必须iOS9以上，该方法并不会调用
@@ -60,4 +60,27 @@ NSString * const kDiplomatTypeTwitter = @"diplomat_twitter";
 }
 
 #pragma mark ---
+
+-(void)getUserInfo{
+    TWTRAPIClient *client = [TWTRAPIClient clientWithCurrentUser];
+    [client loadUserWithID:client.userID completion:^(TWTRUser * _Nullable user, NSError * _Nullable error) {
+        
+        DTUser *dtUser = nil;
+        NSError *terror = error;
+        if (user)
+        {
+            dtUser = [[DTUser alloc] init];
+            dtUser.uid = user.userID;
+            dtUser.gender = @"male";
+            dtUser.nick = user.name;
+            dtUser.avatar = user.profileImageURL;
+            dtUser.provider = @"twitter";
+            
+        }else if (!terror){
+            terror = [NSError errorWithDomain:kTwitterErrorDomain code:-1024 userInfo:@{NSLocalizedDescriptionKey: @"获取用户信息失败"}];
+        }
+        
+        !self.block?:self.block(dtUser,terror);
+    }];
+}
 @end
